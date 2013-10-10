@@ -140,8 +140,8 @@ public class JSMPPGateway extends AbstractSMPPGateway {
 			if(enquireLink>0){
 				session.setEnquireLinkTimer(enquireLink);
 			}
-			
-		session.connectAndBind(host, port, new BindParameter(bindType, bindAttributes.getSystemId(), bindAttributes.getPassword(), bindAttributes.getSystemType(), bindTypeOfNumber, bindNumberingPlanIndicator, null));
+			initSession();	//Issue 82: 	connection restart : "Failed connecting"
+			session.connectAndBind(host, port, new BindParameter(bindType, bindAttributes.getSystemId(), bindAttributes.getPassword(), bindAttributes.getSystemType(), bindTypeOfNumber, bindNumberingPlanIndicator, null));
 		
 		  
 		}else{
